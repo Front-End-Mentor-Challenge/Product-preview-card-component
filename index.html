@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Frontend Mentor | Product preview card component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -15,22 +18,113 @@
   </style>
 </head>
 <body>
-
-  Preview
-
-  Gabrielle Essence Eau De Parfum
-
-  A floral, solar and voluptuous interpretation composed by Olivier Polge, 
-  Perfumer-Creator for the House of CHANEL.
-
-  $149.99
-  $169.99
-
-  Add to Cart
+  <main>
+    <div class="container justify-content-center align-items-center">
+      <div class="row main_container justify-content-center align-items-center">
+        <div class="col-6 Feature_img"><img src="./images/image-product-desktop.jpg" alt="" class="f_img" ></div>
+        <div class="col-6 details">
+          <p class="type">Perfume</p>
+          <h2 class="heading">Gabrielle Essence Eau De Parfum</h2>
+          <p class="desc">A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+            Perfumer-Creator for the House of CHANEL.</p>
+          <div class="price"> $149.99<span class="discount ms-3"> $169.99</span></div>
+          <button class="cart_btn mt-3"><img src="./images/icon-cart.svg" alt="" class="me-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<footer><div class="attribution mt-3">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Anosha Sohail</a>.
+</div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    const mediaQuery =window.matchMedia("(max-width:770px)");
+    const image = document.querySelector('.f_img');
+    function handleMediaQueryChange(event) {
+      if (event.matches) {
+        image.src = './images/image-product-mobile.jpg';
+      }else {
+        image.src = './images/image-product-desktop.jpg';
+      }
+    }
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuery);
+  </script>
+<!--   <script>
+    // Define the media query
+    const mediaQuery = window.matchMedia(
+      "(max-width: 376px), (max-width: 992px) "
+    );
+    const mediaQuery2 = window.matchMedia(
+      " (max-width: 1399px)"
+    );
+    const mediaQuery3 = window.matchMedia(
+      "(max-width: 1199px) , (max-width: 990px)"
+    );
+    //Define the targeted divs
+    const featureImg = document.querySelector(".Feature_img");
+    const Details = document.querySelector(".details");
+    const image = document.querySelector('.f_img');
+    const maincont = document.querySelector('.main_container');
+    /* const scorediv = document.querySelectorAll(".scorediv"); */
+    // Function to handle the media query changes
+    function handleMediaQueryChange(event) {
+      if (event.matches) {
+        console.log('mobile')
+        featureImg.classList.remove("col-6");
+        featureImg.classList.add("col-12");
+        image.src = './images/image-product-mobile.jpg';
+        image.style.borderRadius = '0px';
+        Details.classList.remove("col-6");
+        Details.classList.add("col-12");
+        maincont.style.padding = '0rem 0rem';
+        Details.style.borderRadius = '0px';
+        Details.style.textAlign = 'center'
+      } else {
+        featureImg.classList.remove("col-12");
+        featureImg.classList.add("col-6");
+        image.src = './images/image-product-desktop.jpg';
+        image.style.borderTopLeftRadius = '10px';
+        image.style.borderBottomLeftRadius = '10px';
+        Details.style.borderTopRightRadius = '10px';
+        Details.style.borderBottomRightRadius = '10px';
+        Details.classList.remove("col-12");
+        Details.classList.add("col-6");
+        maincont.style.padding = '0rem 22rem';
+        Details.style.textAlign = 'left'
+      }
+    }
+function mediumDevices(event){
+  if(event.matches){
+    maincont.style.padding = '0rem 16rem';
+    Details.style.padding = '3.15rem 2rem';
+  }
+  else{
+    maincont.style.padding = '0rem 22rem';
+    Details.style.padding = '2.9rem 2rem';
+  }
+}
+function mediumDevices2(event){
+ if(event.matches){
+    maincont.style.padding = '0rem 10rem';
+    Details.style.padding = '3.45rem 2rem';
+  }
+  else{
+    maincont.style.padding = '0rem 22rem';
+    Details.style.padding = '2.9rem 2rem';
+  }
+}
+    // Add the event listener for the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+mediaQuery2.addEventListener("change", mediumDevices);
+mediaQuery3.addEventListener("change", mediumDevices2);
+    // Execute the function once initially to handle the initial state
+    mediumDevices(mediaQuery2);
+    mediumDevices2(mediaQuery3);
+    handleMediaQueryChange(mediaQuery);
+    
+  </script> -->
 </body>
 </html>
