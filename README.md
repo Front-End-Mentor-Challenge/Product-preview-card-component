@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL:https://github.com/AnoshaSohail/product-preview-card-component-main.git
-- Live Site URL:  https://anoshasohail.github.io/product-preview-card-component-main/
+- Live Site URL:  https://front-end-mentor-challenge.github.io/Product-preview-card-component/
 
 ## My process
 
